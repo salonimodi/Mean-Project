@@ -13,7 +13,8 @@ import { PostComponent } from './post/post.component';
 import {MatCardModule} from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { PostListComponent } from './post-list/post-list.component';
-import { MatExpansionModule } from '@angular/material/expansion'
+import { MatExpansionModule } from '@angular/material/expansion';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { MatExpansionModule } from '@angular/material/expansion'
     MatButtonModule,
     MatCardModule,
     MatToolbarModule,
-    MatExpansionModule
+    MatExpansionModule,
+    HttpClientModule
     ],
   providers: [],
   bootstrap: [AppComponent]
