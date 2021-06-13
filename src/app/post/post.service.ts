@@ -27,6 +27,10 @@ return this.postUpdated.asObservable();
 
  addpost(title: string, content: string) {
    const post: Post = {title: title ,content:content };
+   this.http.post('http://localhost:3000/api/posts',post)
+   .subscribe((result)=>{
+    console.log(result);
+   });
    this.posts.push(post);
    this.postUpdated.next(this.posts);
  }
