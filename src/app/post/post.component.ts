@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { PostService } from './post.service';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import {Post} from '../post/post.model';
 
 @Component({
   selector: 'app-post',
@@ -7,23 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostComponent {
 
-  FName = '';
-  LName = '';
-  newPost="";
-  postCardData='';
+  constructor(public postService: PostService) {}
 
-  onAddPost() {
-    this.FName;
-    this.LName;
-  }
-
-  submit($event: any) {
-  console.log($event);
+  onAddPost(postForm: NgForm) {
+    if(postForm.valid) {
+   this.postService.addpost(postForm.value.title, postForm.value.content);
+   postForm.reset();
+    }
   }
 
   OnClick(data: any){
-  console.log(data.controls['Fname'].value);
-  console.log(data.controls['Lname'].value);
+  console.log(data.controls['enteredTitle'].value);
+  console.log(data.controls['enteredContent'].value);
   }
 
 }

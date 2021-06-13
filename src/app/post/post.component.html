@@ -1,20 +1,15 @@
-<div  fxflex='200px'>
-  <form #formData='ngForm' fxLayout="row" fxLayoutAlign="space-around center">
-    <mat-card>
+<mat-card>
+  <form (submit)="onAddPost(postForm)" #postForm="ngForm">
     <mat-form-field>
-      <mat-label>First Name</mat-label>
-      <input name='Fname' [(ngModel)]="FName"  matInput placeholder="Placeholder">
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>Last Name</mat-label>
-      <input name='Lname' [(ngModel)]="LName"  matInput placeholder="Placeholder">
+      <mat-label>Title</mat-label>
+      <input name='title' ngModel required matInput #title='ngModel' placeholder="Add a Title">
+      <mat-error *ngIf="title.invalid">Please enter Title</mat-error>
     </mat-form-field>
     <mat-form-field>
       <mat-label>Post Comment</mat-label>
-      <textarea name='postCardData' [(ngModel)]="postCardData"  matInput placeholder="Placeholder"></textarea>
+      <textarea name='content' ngModel required rows="4" matInput #content='ngModel' placeholder="Write your content here.."></textarea>
+      <mat-error *ngIf="content.invalid"> Please enter Content</mat-error>
     </mat-form-field>
-    <button color='accent' mat-raised-button (click)='OnClick(formData)'> Save post</button>
-  </mat-card>
-
+    <button color='accent' mat-raised-button type="submit"> Save post</button>
   </form>
-</div>
+</mat-card>
