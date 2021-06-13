@@ -1,0 +1,20 @@
+<div  fxflex='200px'>
+  <form #formData='ngForm' fxLayout="row" fxLayoutAlign="space-around center">
+    <mat-card>
+    <mat-form-field>
+      <mat-label>First Name</mat-label>
+      <input name='Fname' [(ngModel)]="FName"  matInput placeholder="Placeholder">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Last Name</mat-label>
+      <input name='Lname' [(ngModel)]="LName"  matInput placeholder="Placeholder">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Post Comment</mat-label>
+      <textarea name='postCardData' [(ngModel)]="postCardData"  matInput placeholder="Placeholder"></textarea>
+    </mat-form-field>
+    <button color='accent' mat-raised-button (click)='OnClick(formData)'> Save post</button>
+  </mat-card>
+
+  </form>
+</div>
